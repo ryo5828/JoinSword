@@ -1,0 +1,6 @@
+name: JoinSword
+version: 0.0.1
+main: ryo5828\JoinSword\Main
+api: 4.2.0
+load: POSTWORLD
+author: ryo5828
