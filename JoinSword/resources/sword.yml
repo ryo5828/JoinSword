@@ -3,3 +3,5 @@ stone_sword: '石の剣'
 iron_sword: '鉄の剣'
 golden_sword: '金の剣'
 diamond_sword: 'ダイヤの剣'
+
+Unbreaking: true

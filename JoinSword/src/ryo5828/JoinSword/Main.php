@@ -17,7 +17,8 @@ class Main extends PluginBase implements Listener {
             $stoneSwordName,
             $ironSwordName,
             $goldenSwordName,
-            $diamondSwordName;
+            $diamondSwordName,
+            $Unbreaking;
 
 
     public function onEnable(): void {
@@ -30,6 +31,7 @@ class Main extends PluginBase implements Listener {
         $this->ironSwordName = $this->sword_config->get('iron_sword');
         $this->goldenSwordName = $this->sword_config->get('golden_sword');
         $this->diamondSwordName = $this->sword_config->get('diamond_sword');
+        $this->Unbreaking = $this->sword_config->get('Unbreaking');
     }
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
@@ -38,6 +40,14 @@ class Main extends PluginBase implements Listener {
         $iron_sword = VanillaItems::IRON_SWORD()->setCustomName($this->ironSwordName);
         $golden_sword = VanillaItems::GOLDEN_SWORD()->setCustomName($this->goldenSwordName);
         $diamond_sword = VanillaItems::DIAMOND_SWORD()->setCustomName($this->diamondSwordName);
+
+        if ($this->Unbreaking) {
+            $wooden_sword->setUnbreakable();
+            $stone_sword->setUnbreakable();
+            $iron_sword->setUnbreakable();
+            $golden_sword->setUnbreakable();
+            $diamond_sword->setUnbreakable();
+        }
 
         if(!($player->getInventory()->contains($wooden_sword)) or !($wooden_sword->getCustomName() == $this->woodenSwordName)) {
             $player->getInventory()->canAddItem($wooden_sword);
